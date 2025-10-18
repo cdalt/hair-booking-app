@@ -20,6 +20,11 @@ img[loading="lazy"].loaded {
     opacity: 1;
 }
 
+/* Modal images should always be visible */
+.modal-gallery img {
+    opacity: 1 !important;
+}
+
 body {
     font-family: 'Playfair Display', 'Times New Roman', serif;
     line-height: 1.7;

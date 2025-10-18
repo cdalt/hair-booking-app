@@ -77,6 +77,7 @@ function openPortfolioModal(category) {
             img.src = `images/portfolios/blondes/${photo}`;
             img.alt = 'Blonde Hair Work';
             img.onclick = () => window.open(img.src, '_blank');
+            img.style.opacity = '1'; // Override lazy loading for modal images
             modalGallery.appendChild(img);
         });
     } else if (category === 'brunettes') {
@@ -113,6 +114,7 @@ function openPortfolioModal(category) {
             img.src = `images/portfolios/brunettes/${photo}`;
             img.alt = 'Brunette Hair Work';
             img.onclick = () => window.open(img.src, '_blank');
+            img.style.opacity = '1'; // Override lazy loading for modal images
             modalGallery.appendChild(img);
         });
     } else if (category === 'reds') {
@@ -134,6 +136,7 @@ function openPortfolioModal(category) {
             img.src = `images/portfolios/reds/${photo}`;
             img.alt = 'Red Hair Work';
             img.onclick = () => window.open(img.src, '_blank');
+            img.style.opacity = '1'; // Override lazy loading for modal images
             modalGallery.appendChild(img);
         });
     }
