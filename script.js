@@ -37,10 +37,17 @@ let bookingData = {
 
 // Portfolio Modal functionality
 function openPortfolioModal(category) {
+    console.log('Opening portfolio modal for category:', category); // Debug log
+    
     const modal = document.getElementById('portfolioModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalCount = document.getElementById('modalCount');
     const modalGallery = document.getElementById('modalGallery');
+    
+    if (!modal) {
+        console.error('Portfolio modal not found!');
+        return;
+    }
     
     // Set title and count based on category
     if (category === 'blondes') {
@@ -264,10 +271,13 @@ function setupPortfolioModal() {
     // Add click event to all portfolio galleries
     const portfolioGalleries = document.querySelectorAll('.portfolio-gallery');
     
+    console.log('Setting up portfolio galleries:', portfolioGalleries.length); // Debug log
+    
     portfolioGalleries.forEach(gallery => {
         const category = gallery.getAttribute('data-category');
         
         gallery.addEventListener('click', function() {
+            console.log('Portfolio gallery clicked:', category); // Debug log
             openPortfolioModal(category);
         });
     });
