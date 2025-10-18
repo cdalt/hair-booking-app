@@ -5,6 +5,21 @@
     box-sizing: border-box;
 }
 
+/* Performance optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
 body {
     font-family: 'Playfair Display', 'Times New Roman', serif;
     line-height: 1.7;
