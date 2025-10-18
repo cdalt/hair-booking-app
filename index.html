@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The TajEffect - Hair Salon Booking</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-cut"></i>
+                    <h1>The TajEffect</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#booking" class="nav-link active">Book Appointment</a>
+                    <a href="photography.html" class="nav-link">Photography</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2>Your Hair, Your Story</h2>
+                        <p>Transform your look with expert hair services that celebrate your unique style. Book your appointment and let's create something amazing together.</p>
+                        <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-calendar-plus"></i>
+                            Book Now
+                            <span class="payment-badges">
+                                <i class="fab fa-apple-pay"></i>
+                                <i class="fas fa-credit-card"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery-section">
+                <div class="container">
+                    <h3>Our Work</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item portfolio-gallery" data-category="blondes">
+                            <div class="portfolio-preview">
+                                <img src="images/portfolios/blondes/IMG_0072.JPG" alt="Blonde Hair Portfolio" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px;">
+                                <div class="portfolio-overlay">
+                                    <h4>Blondes</h4>
+                                    <p>20 Photos</p>
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            <div class="hover-preview">
+                                <h5>Blondes Preview</h5>
+                                <div class="hover-preview-grid">
+                                    <img src="images/portfolios/blondes/IMG_4375.JPG" alt="Blonde Hair">
+                                    <img src="images/portfolios/blondes/IMG_7208.JPG" alt="Blonde Hair">
+                                    <img src="images/portfolios/blondes/IMG_7591.JPG" alt="Blonde Hair">
+                                    <img src="images/portfolios/blondes/IMG_1833.JPG" alt="Blonde Hair">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item portfolio-gallery" data-category="brunettes">
+                            <div class="portfolio-preview">
+                                <img src="images/portfolios/brunettes/IMG_0484.JPG" alt="Brunette Hair Portfolio" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px;">
+                                <div class="portfolio-overlay">
+                                    <h4>Brunettes</h4>
+                                    <p>20 Photos</p>
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            <div class="hover-preview">
+                                <h5>Brunettes Preview</h5>
+                                <div class="hover-preview-grid">
+                                    <img src="images/portfolios/brunettes/IMG_1255.jpeg" alt="Brunette Hair">
+                                    <img src="images/portfolios/brunettes/IMG_2805.JPG" alt="Brunette Hair">
+                                    <img src="images/portfolios/brunettes/IMG_4062.JPG" alt="Brunette Hair">
+                                    <img src="images/portfolios/brunettes/IMG_6804.JPG" alt="Brunette Hair">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item portfolio-gallery" data-category="reds">
+                            <div class="portfolio-preview">
+                                <img src="images/portfolios/reds/IMG_3641.JPG" alt="Red Hair Portfolio" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px;">
+                                <div class="portfolio-overlay">
+                                    <h4>Reds</h4>
+                                    <p>5 Photos</p>
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            <div class="hover-preview">
+                                <h5>Reds Preview</h5>
+                                <div class="hover-preview-grid">
+                                    <img src="images/portfolios/reds/IMG_4376.jpeg" alt="Red Hair">
+                                    <img src="images/portfolios/reds/IMG_7578.JPG" alt="Red Hair">
+                                    <img src="images/portfolios/reds/A4E2A51A-0BB4-4725-BABD-06596903B52D.jpg" alt="Red Hair">
+                                    <img src="images/portfolios/reds/4F2E1F91-4B26-40A5-B8C6-CD0F9C0E674B.jpg" alt="Red Hair">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services & Booking Section -->
+            <section id="booking" class="booking-section">
+                <div class="container">
+                    <div class="booking-card">
+                        <h3>What We Do Best</h3>
+                        <p style="text-align: center; font-family: 'Crimson Text', serif; font-style: italic; color: #5d6d7e; margin-bottom: 2rem; font-size: 1.1rem;">
+                            Choose your service and let's get you booked in
+                        </p>
+                        
+                        <div class="services-grid">
+                            <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="service-card booking-card">
+                                <i class="fas fa-cut"></i>
+                                <h5>Haircut & Style</h5>
+                                <p>Fresh cuts and styling that work with your face shape and daily routine</p>
+                                <span class="price">Starting at $75</span>
+                                <div class="book-now-overlay">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Book Now</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="service-card booking-card">
+                                <i class="fas fa-palette"></i>
+                                <h5>Hair Coloring</h5>
+                                <p>Full color, highlights, balayage, and color fixes - we've got you covered</p>
+                                <span class="price">Starting at $200</span>
+                                <div class="book-now-overlay">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Book Now</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="service-card booking-card">
+                                <i class="fas fa-spa"></i>
+                                <h5>Hair Treatment</h5>
+                                <p>Deep conditioning, keratin treatments, and hair repair - your hair will thank you</p>
+                                <span class="price">Starting at $100</span>
+                                <div class="book-now-overlay">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Book Now</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="service-card booking-card">
+                                <i class="fas fa-magic"></i>
+                                <h5>Special Styling</h5>
+                                <p>Wedding updos, prom styles, and special event hair - let's make you shine</p>
+                                <span class="price">Starting at $50</span>
+                                <div class="book-now-overlay">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Book Now</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-calendar-alt"></i>
+                                See All Services & Book Now
+                                <span class="payment-badges">
+                                    <i class="fab fa-apple-pay"></i>
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </a>
+                        </div>
+                        
+                        <!-- Payment Options -->
+                        <div class="payment-options">
+                            <h4>We Accept All Major Payment Methods</h4>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <i class="fab fa-apple-pay"></i>
+                                    <span>Apple Pay</span>
+                                </div>
+                                <div class="payment-method">
+                                    <i class="fab fa-google-pay"></i>
+                                    <span>Google Pay</span>
+                                </div>
+                                <div class="payment-method">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit Cards</span>
+                                </div>
+                                <div class="payment-method">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Cash</span>
+                                </div>
+                            </div>
+                            <p class="payment-note">Secure payments powered by Square</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section">
+                <div class="container">
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="images/mom-photo.jpg" alt="Meet Your Stylist" style="width: 300px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);">
+                        </div>
+                        <div class="about-text">
+                            <h3>Meet Your Stylist</h3>
+                            <p>I'm passionate about creating looks that make you feel confident and beautiful. With years of experience and a love for what I do, I'm here to help you discover your best hair. Whether you want a subtle change or something bold, let's work together to create something you'll love.</p>
+                            <div class="about-features">
+                                <div class="feature">
+                                    <i class="fas fa-award"></i>
+                                    <span>Years of Experience</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Personalized Approach</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-star"></i>
+                                    <span>Quality Results</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section">
+                <div class="container">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>123 Main Street<br>Your City, State 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Tuesday - Saturday: 9:00 AM - 6:00 PM<br>Sunday - Monday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 The TajEffect. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Portfolio Lightbox Modal -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Blondes Portfolio</h2>
+                <p id="modalCount">20 Photos</p>
+            </div>
+            <div class="modal-gallery" id="modalGallery">
+                <!-- Photos will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Chat Widget -->
+    <div class="chat-widget" id="chatWidget" aria-live="polite">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chat-window" id="chatWindow" role="dialog" aria-label="FAQ Chat" aria-modal="false">
+            <div class="chat-header">
+                <span>Got questions?</span>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">&times;</button>
+            </div>
+                <div class="chat-body" id="chatBody">
+                    <div class="chat-message bot">Hey! What can I help you with today? Pick a question below.</div>
+                </div>
+            <div class="chat-quick-questions">
+                <button class="chat-qq" data-faq="pricing">What do you charge?</button>
+                <button class="chat-qq" data-faq="hours">When are you open?</button>
+                <button class="chat-qq" data-faq="booking">How do I book?</button>
+                <button class="chat-qq" data-faq="cancellation">What's your cancellation policy?</button>
+                <button class="chat-qq" data-faq="parking">Is there parking?</button>
+                <button class="chat-qq" data-faq="payment">What payment methods do you take?</button>
+                <button class="chat-qq" data-faq="newclient">Do you take new clients?</button>
+                <button class="chat-qq" data-faq="late">What if I'm running late?</button>
+            </div>
+            <div class="chat-footer">
+                <a href="https://instagram.com/thetajeffect" target="_blank" class="chat-ig" aria-label="Message us on Instagram">
+                    <i class="fab fa-instagram"></i> DM us on Instagram
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Book Now Button -->
+    <a href="https://thetajeffect.square.site/s/appointments" target="_blank" class="floating-book-now" aria-label="Book Now">
+        <i class="fas fa-calendar-plus"></i>
+        <span>Book Now</span>
+        <div class="floating-payment-badges">
+            <i class="fab fa-apple-pay"></i>
+        </div>
+    </a>
+    
+    <script src="script.js"></script>
+</body>
+</html>

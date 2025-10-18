@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The TajEffect - Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .admin-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .admin-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .bookings-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .bookings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .bookings-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-controls select,
+        .filter-controls input {
+            padding: 8px 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .filter-controls select:focus,
+        .filter-controls input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .bookings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .bookings-table th,
+        .bookings-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .bookings-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .bookings-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-confirmed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-cancelled {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-completed {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            border-radius: 6px;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+            border: none;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+            border: none;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .no-bookings {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        .no-bookings i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 1rem;
+            }
+            
+            .bookings-table {
+                font-size: 0.9rem;
+            }
+            
+            .bookings-table th,
+            .bookings-table td {
+                padding: 0.5rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="admin-container">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Booking Site
+            </a>
+            
+            <div class="admin-header">
+                <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+                <p>The TajEffect - Appointment Management</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3 id="totalBookings">0</h3>
+                    <p>Total Bookings</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3 id="todayBookings">0</h3>
+                    <p>Today's Appointments</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3 id="totalRevenue">$0</h3>
+                    <p>Total Revenue</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3 id="uniqueCustomers">0</h3>
+                    <p>Unique Customers</p>
+                </div>
+            </div>
+            
+            <div class="bookings-section">
+                <div class="bookings-header">
+                    <h2>All Appointments</h2>
+                    <div class="filter-controls">
+                        <select id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="date" id="dateFilter" placeholder="Filter by date">
+                        <button class="btn btn-primary" onclick="refreshBookings()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="bookingsTableContainer">
+                    <table class="bookings-table" id="bookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsTableBody">
+                            <!-- Bookings will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="noBookings" class="no-bookings" style="display: none;">
+                    <i class="fas fa-calendar-times"></i>
+                    <h3>No appointments found</h3>
+                    <p>No bookings match your current filters.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Admin JavaScript functionality
+        let allBookings = [];
+        let filteredBookings = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBookings();
+            setupFilters();
+        });
+        
+        function loadBookings() {
+            allBookings = JSON.parse(localStorage.getItem('tajEffectBookings') || '[]');
+            filteredBookings = [...allBookings];
+            updateStats();
+            displayBookings();
+        }
+        
+        function updateStats() {
+            const totalBookings = allBookings.length;
+            const today = new Date().toISOString().split('T')[0];
+            const todayBookings = allBookings.filter(booking => booking.date === today).length;
+            const totalRevenue = allBookings.reduce((sum, booking) => sum + parseInt(booking.service.price), 0);
+            const uniqueCustomers = new Set(allBookings.map(booking => booking.customer.phone)).size;
+            
+            document.getElementById('totalBookings').textContent = totalBookings;
+            document.getElementById('todayBookings').textContent = todayBookings;
+            document.getElementById('totalRevenue').textContent = `$${totalRevenue}`;
+            document.getElementById('uniqueCustomers').textContent = uniqueCustomers;
+        }
+        
+        function displayBookings() {
+            const tbody = document.getElementById('bookingsTableBody');
+            const noBookings = document.getElementById('noBookings');
+            const table = document.getElementById('bookingsTable');
+            
+            if (filteredBookings.length === 0) {
+                table.style.display = 'none';
+                noBookings.style.display = 'block';
+                return;
+            }
+            
+            table.style.display = 'table';
+            noBookings.style.display = 'none';
+            
+            tbody.innerHTML = filteredBookings.map(booking => {
+                const appointmentDate = new Date(booking.date).toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                const appointmentTime = formatTime(booking.time);
+                
+                return `
+                    <tr>
+                        <td>
+                            <strong>${appointmentDate}</strong><br>
+                            <small>${appointmentTime}</small>
+                        </td>
+                        <td>
+                            <strong>${booking.customer.firstName} ${booking.customer.lastName}</strong><br>
+                            <small>${booking.customer.email || 'No email'}</small>
+                        </td>
+                        <td>
+                            <strong>${booking.service.name}</strong><br>
+                            <small>$${booking.service.price}</small>
+                        </td>
+                        <td>${booking.customer.phone}</td>
+                        <td>
+                            <span class="status-badge status-${booking.status}">
+                                ${booking.status}
+                            </span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                ${booking.status === 'confirmed' ? `
+                                    <button class="btn btn-small btn-success" onclick="markCompleted(${booking.id})">
+                                        <i class="fas fa-check"></i> Complete
+                                    </button>
+                                ` : ''}
+                                <button class="btn btn-small btn-danger" onclick="cancelBooking(${booking.id})">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+        
+        function setupFilters() {
+            document.getElementById('statusFilter').addEventListener('change', applyFilters);
+            document.getElementById('dateFilter').addEventListener('change', applyFilters);
+        }
+        
+        function applyFilters() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+            
+            filteredBookings = allBookings.filter(booking => {
+                const statusMatch = !statusFilter || booking.status === statusFilter;
+                const dateMatch = !dateFilter || booking.date === dateFilter;
+                return statusMatch && dateMatch;
+            });
+            
+            displayBookings();
+        }
+        
+        function markCompleted(bookingId) {
+            if (confirm('Mark this appointment as completed?')) {
+                const booking = allBookings.find(b => b.id === bookingId);
+                if (booking) {
+                    booking.status = 'completed';
+                    localStorage.setItem('tajEffectBookings', JSON.stringify(allBookings));
+                    loadBookings();
+                }
+            }
+        }
+        
+        function cancelBooking(bookingId) {
+            if (confirm('Cancel this appointment? This action cannot be undone.')) {
+                const booking = allBookings.find(b => b.id === bookingId);
+                if (booking) {
+                    booking.status = 'cancelled';
+                    localStorage.setItem('tajEffectBookings', JSON.stringify(allBookings));
+                    loadBookings();
+                }
+            }
+        }
+        
+        function refreshBookings() {
+            loadBookings();
+        }
+        
+        function formatTime(timeString) {
+            const [hours, minutes] = timeString.split(':');
+            const hour = parseInt(hours);
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const displayHour = hour % 12 || 12;
+            return `${displayHour}:${minutes} ${ampm}`;
+        }
+        
+        // Add some sample data if no bookings exist
+        function addSampleData() {
+            const existingBookings = JSON.parse(localStorage.getItem('tajEffectBookings') || '[]');
+            if (existingBookings.length === 0) {
+                const sampleBookings = [
+                    {
+                        id: Date.now() - 86400000,
+                        service: { name: 'Haircut & Style', price: '45', type: 'haircut' },
+                        date: new Date().toISOString().split('T')[0],
+                        time: '10:00',
+                        customer: {
+                            firstName: 'Sarah',
+                            lastName: 'Johnson',
+                            phone: '(555) 123-4567',
+                            email: 'sarah@email.com',
+                            notes: 'First time customer'
+                        },
+                        status: 'confirmed',
+                        createdAt: new Date(Date.now() - 86400000).toISOString()
+                    },
+                    {
+                        id: Date.now() - 172800000,
+                        service: { name: 'Hair Coloring', price: '85', type: 'color' },
+                        date: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                        time: '14:00',
+                        customer: {
+                            firstName: 'Maria',
+                            lastName: 'Garcia',
+                            phone: '(555) 987-6543',
+                            email: 'maria@email.com',
+                            notes: 'Highlights and lowlights'
+                        },
+                        status: 'confirmed',
+                        createdAt: new Date(Date.now() - 172800000).toISOString()
+                    }
+                ];
+                
+                localStorage.setItem('tajEffectBookings', JSON.stringify(sampleBookings));
+                loadBookings();
+            }
+        }
+        
+        // Uncomment the line below to add sample data for testing
+        // addSampleData();
+    </script>
+</body>
+</html>
+
+
